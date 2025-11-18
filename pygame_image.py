@@ -27,15 +27,18 @@ def main():
         screen.blit(bg_img, [-x + 3200, 0])
 
         key_lst = pg.key.get_pressed()
+        a = 0
+        b = 0
         kk_rct.move_ip((-1,0))
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0, -2))
+            b = -2
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, 2))
-        if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((2, 0))
+            b = 2
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-2,0))
+            a = -2
+        if key_lst[pg.K_RIGHT]:
+            a = 2
+        kk_rct.move_ip((a, b))
         screen.blit(kk_img, kk_rct)
         pg.display.update()
         tmr += 1        
